@@ -25,29 +25,30 @@
               </div>
               <div id="regInit" class="form-group">
                 <label class="col-form-label" for="regInit">Initial Deposit</label>
-                <input type="text" class="form-control" id="initialDeposit" placeholder="Initial Deposit Amount">
+                <input id="newBal" type="text" class="form-control" id="initialDeposit" placeholder="Initial Deposit Amount">
               </div>
-              <button type="submit" class="btn btn-info btn-lg">Submit</button>
+              <button id="register" type="submit" class="btn btn-info btn-lg">Submit</button>
             </form>
         </div>
 
         <div class="card col-md-6">
             <p class="card-text h4">Deposit or withdrawal</p>
-            <form id="depWith">
-              <div id="deposit" class="form-group">
+            <form id="depWithdr">
+              <div class="form-group">
                 <label class="col-form-label" for="deposit">Enter deposit amount:</label>
-                <input type="text" class="form-control" id="depositAmt" placeholder="Deposit Amount">
+                <input id="deposit" type="text" class="form-control" id="depositAmt" placeholder="Deposit Amount">
               </div>
-              <div id="withdr" class="form-group">
+              <div class="form-group">
                 <label class="col-form-label" for="withdr">Enter withdrawal amount:</label>
-                <input type="text" class="form-control" id="withdrAmt" placeholder="Withdrawal Amount">
+                <input id="withdrawal" type="text" class="form-control" id="withdrAmt" placeholder="Withdrawal Amount">
               </div>
-              <button type="submit" class="btn btn-info btn-lg">Submit</button>
+              <button id="moveMoneys" type="submit" class="btn btn-info btn-lg">Submit</button>
             </form>
         </div>
         <div class="card col-md">
           <div class="card-body">
-            <h4 class="card-title">Current Balance:</h4>
+            <h4 id="currentOutput" class="card-title">Current Balance:</h4>
+            <p><span id="current"></span></p>
           </div>
         </div>
 
