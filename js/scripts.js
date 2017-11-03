@@ -16,17 +16,19 @@ BankAccount.prototype.removeMoney = function(withdrAmt) {
 
 //frontend logic
 $(document).ready(function(){
-  $("form#register").submit(function(event){
+  var newAcct;
+  console.log(newAcct);
+  $("#regName").submit(function(event){
+    console.log('register submit');
     event.preventDefault();
 
-    var newName = $("#regName").val();
-    var newBal = parseInt($("#newBal").val());
+    var newName = $("input#name").val();
+    var newBal = parseInt($("input#newBal").val());
 
-    var newAcct = new BankAccount(newName, newBal);
-    debugger
+    newAcct = new BankAccount(newName, newBal);
+    console.log(newAcct);
+    $("#current").text(newBal);
   });//event for register
-
-  $("#current").text(newBal);
 
   $("form#depWithdr").submit(function(event){
     event.preventDefault();
@@ -42,6 +44,6 @@ $(document).ready(function(){
   });//event for depWithdr
 
 
-    $("#current").text(newAcct.balance);
+
 
 }); //ready
