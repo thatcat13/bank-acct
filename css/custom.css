@@ -1,0 +1,11 @@
+button {
+  margin-bottom: 20px;
+}
+
+.h4, #currentBal {
+  margin-top: 0.75rem;
+}
+
+.card col-md {
+  height: 100%;
+}

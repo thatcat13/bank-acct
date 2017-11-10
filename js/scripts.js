@@ -9,25 +9,34 @@ BankAccount.prototype.addMoney = function(depositAmt) {
   this.balance += depositAmt;
 }
 
+
 BankAccount.prototype.removeMoney = function(withdrAmt) {
   this.balance -= withdrAmt;
+}
+
+function resetFields() {
+  $("input#name").val("");
+  $("input#newBal").val("");
+  $("input#deposit").val("");
+  $("input#withdrawal").val("");
 }
 
 
 //frontend logic
 $(document).ready(function(){
   var newAcct;
-  console.log(newAcct);
   $("#regName").submit(function(event){
-    console.log('register submit');
     event.preventDefault();
 
     var newName = $("input#name").val();
     var newBal = parseInt($("input#newBal").val());
 
     newAcct = new BankAccount(newName, newBal);
-    console.log(newAcct);
-    $("#current").text(newBal);
+    console.log(newName);
+    $("#nameDisplay").text(newName + "'s ");
+    $("#adjustedBal").text("$" + newBal);
+
+    resetFields();
   });//event for register
 
   $("form#depWithdr").submit(function(event){
@@ -38,12 +47,12 @@ $(document).ready(function(){
 
     if (parseInt($("input#deposit").val()) > 0) {
       newAcct.addMoney(deposit);
-    } else if (parseInt($("input#deposit").val()) > 0) {
+    } else if (parseInt($("input#withdrawal").val()) > 0) {
       newAcct.removeMoney(withdrawal);
     }
+
+  $("#adjustedBal").text("$" + newAcct.balance);
+
+  resetFields();
   });//event for depWithdr
-
-
-
-
 }); //ready
