@@ -1,8 +1,12 @@
 //business logic
 
-function BankAccount(newName, newBal) {
+function BankAccount(newName, newBal = 0) {
   this.name = newName;
   this.balance = newBal;
+}
+
+BankAccount.prototype.setName = function(name) {
+  this.name = name;
 }
 
 BankAccount.prototype.addMoney = function(depositAmt) {
@@ -24,17 +28,28 @@ function resetFields() {
 
 //frontend logic
 $(document).ready(function(){
+
   var newAcct;
+
   $("#regName").submit(function(event){
     event.preventDefault();
 
     var newName = $("input#name").val();
     var newBal = parseInt($("input#newBal").val());
+    console.log(newAcct);
+      if (newAcct) {
+        newAcct.setName(newName);
+      } else {
+        newAcct = new BankAccount(newName, newBal);
+        $("#adjustedBal").text("$" + newBal);
+      };
 
-    newAcct = new BankAccount(newName, newBal);
-    console.log(newName);
+    $("input#deposit").prop("disabled", false);
+    $("input#withdrawal").prop("disabled", false);
+    $("input#newBal").prop("disabled", true);
+
     $("#nameDisplay").text(newName + "'s ");
-    $("#adjustedBal").text("$" + newBal);
+
 
     resetFields();
   });//event for register
